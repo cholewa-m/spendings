@@ -5,33 +5,64 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:spendings_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-	<Grid>
-		<Label Content="UrSpendings" HorizontalAlignment="Left" VerticalAlignment="Top" />
-		<Label x:Name="totalSpendingsLabel" Content="Total Spendings: 0" HorizontalAlignment="Right" VerticalAlignment="Top" />
-		<Button x:Name="addSpendingButton" Content="Add Spending" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,30,0,0" Click="addSpendingButton_Click" />
-		<ListView x:Name="spendingsListView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,60,0,0">
-			<ListView.View>
-				<GridView>
-					<GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" />
-                    <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date, StringFormat=d}" />
-                    <GridViewColumn Header="Cost" DisplayMemberBinding="{Binding Cost}" />
-					<GridViewColumn Header="Edit">
-						<GridViewColumn.CellTemplate>
-							<DataTemplate>
-								<Button Content="Edit" Click="editButton_Click" />
-							</DataTemplate>
-						</GridViewColumn.CellTemplate>
-					</GridViewColumn>
-					<GridViewColumn Header="Delete">
-						<GridViewColumn.CellTemplate>
-							<DataTemplate>
-								<Button Content="Delete" Click="deleteButton_Click" />
-							</DataTemplate>
-						</GridViewColumn.CellTemplate>
-					</GridViewColumn>
-				</GridView>
-			</ListView.View>
-		</ListView>
-	</Grid>
+        Title="" Height="450" Width="800" ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="UrSpendings" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" FontSize="30" FontWeight="ExtraBlack"/>
+        <TextBlock Grid.Row="0" x:Name="totalSpendingsLabel" Text="Total spendings: 0$" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20" FontSize="20" FontWeight="Bold" Foreground="DarkRed" FontStyle="Italic"/>
+
+        <Button Grid.Row="1" x:Name="addSpendingButton" Content="Add Spending" FontSize="15" FontWeight="DemiBold"  HorizontalAlignment="Right" VerticalAlignment="Top"  Click="addSpendingButton_Click" Width="200" MinHeight="30"/>
+
+        <DataGrid Grid.Row="2" x:Name="spendingsListView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="True" SelectionMode="Extended">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="4*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="FontWeight" Value="DemiBold"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Date" Binding="{Binding Date, StringFormat=dd-MM-yyyy}" Width="2*">
+                    <DataGridTextColumn.ElementStyle>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                    </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Cost" Binding="{Binding Cost}" Width="2*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Edit" Click="editButton_Click" Margin="2"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" Click="deleteButton_Click" Margin="2"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+    </Grid>
 </Window>
