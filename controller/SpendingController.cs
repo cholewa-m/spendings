@@ -1,62 +1,51 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
 using System.Collections.ObjectModel;
 using spendings_WPF.model;
+
 
 namespace spendings_WPF.controller
 {
     public class SpendingController
-    {
-        // Zmieniamy typ listy na ObservableCollection
-        public ObservableCollection<Spending> Spendings { get; set; } = new ObservableCollection<Spending>();
+    {        
+        //TODO UI can ract to changes
+        public ObservableCollection<Spending> spendings { get; set; } = new ObservableCollection<Spending>();
 
-
-        public void AddSpending(Spending spending)
+        public void addSpending(Spending spending)
         {
-            Spendings.Add(spending);
-            SortSpendings();
+            spendings.Add(spending);
+            sortSpendings();
         }
 
-        public void RemoveSpending(Spending spending)
+        public void removeSpending(Spending spending)
         {
-            Spendings.Remove(spending);
-            SortSpendings();
+            spendings.Remove(spending);
+            sortSpendings();
         }
 
-        public void EditSpending(Spending oldSpending, Spending newSpending)
+        public void editSpending(Spending oldSpending, Spending newSpending)
         {
-            int index = Spendings.IndexOf(oldSpending);
+            int index = spendings.IndexOf(oldSpending);
             if (index != -1)
-            {
-                Spendings[index] = newSpending;
-            }
+                spendings[index] = newSpending;
         }
 
-        public decimal GetTotalSpendings()  //po dacie?
+        public decimal getTotalSpendings()
         {
-            return Spendings.Sum(s => s.Cost);
+            return spendings.Sum(s => s.Cost);
         }
 
-        private void SortSpendings()
+        private void sortSpendings()
         {
-            var sortedSpendings = Spendings.OrderBy(s => s.Date).ToList();
+            var sortedSpendings = spendings.OrderBy(s => s.Date).ToList();
 
-            Spendings.Clear();
+            spendings.Clear();
 
-            foreach (var spending in sortedSpendings)
-            {
-                Spendings.Add(spending);
-            }
+            foreach (Spending spending in sortedSpendings)
+                spendings.Add(spending);
         }
-
-
 
     }
 
-
 }
+

@@ -29,7 +29,7 @@ namespace spendings_WPF
 
             spendingController = new SpendingController();
 
-            spendingsListView.ItemsSource = spendingController.Spendings;
+            spendingsListView.ItemsSource = spendingController.spendings;
         }
 
         private void addSpendingButton_Click(object sender, RoutedEventArgs e)
@@ -42,8 +42,8 @@ namespace spendings_WPF
 
             if (addSpendingWindow.ShowDialog() == true)
             {
-                spendingController.AddSpending(addSpendingWindow.spending);
-                totalSpendingsLabel.Text = "Total Spendings: " + spendingController.GetTotalSpendings();
+                spendingController.addSpending(addSpendingWindow.spending);
+                totalSpendingsLabel.Text = "Total Spendings: " + spendingController.getTotalSpendings();
             }
         }
 
@@ -78,7 +78,7 @@ namespace spendings_WPF
                 selectedSpending.Cost = addSpendingWindow.spending.Cost;
                 selectedSpending.Date = addSpendingWindow.spending.Date;
 
-                totalSpendingsLabel.Text = "Total Spendings: " + spendingController.GetTotalSpendings();
+                totalSpendingsLabel.Text = "Total Spendings: " + spendingController.getTotalSpendings();
             }
         }
 
@@ -100,10 +100,10 @@ namespace spendings_WPF
                 return;
 
             // Usuń wybrany wydatek.
-            spendingController.RemoveSpending(selectedSpending);
+            spendingController.removeSpending(selectedSpending);
 
             // Aktualizuj sumę wydatków.
-            totalSpendingsLabel.Text = "Total Spendings: " + spendingController.GetTotalSpendings();
+            totalSpendingsLabel.Text = "Total Spendings: " + spendingController.getTotalSpendings();
         }
 
 
