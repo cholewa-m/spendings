@@ -32,8 +32,9 @@ namespace spendings_WPF.view
         {
             string title = titleTextBox.Text.Trim();
             string costText = costTextBox.Text.Trim();
+            decimal cost = 0;
             DateTime? date = datePicker.SelectedDate;
-
+            
             // Validating Title
             if (string.IsNullOrEmpty(title) || title.Length > 500)
             {
@@ -42,7 +43,7 @@ namespace spendings_WPF.view
             }
 
             // Validating Cost
-            if (!decimal.TryParse(costText, NumberStyles.Float, CultureInfo.InvariantCulture, out decimal cost))
+            if (!decimal.TryParse(costText, NumberStyles.Float, CultureInfo.InvariantCulture, out cost))
             {
                 MessageBox.Show("Cost must be a postive decimal number!");
                 return;
