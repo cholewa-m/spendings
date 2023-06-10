@@ -9,7 +9,7 @@ namespace spendings_WPF.controller
     public class SpendingController
     {        
         //TODO UI can ract to changes
-        public ObservableCollection<Spending> spendings { get; set; } = new ObservableCollection<Spending>();
+        public ObservableCollection<Spending> spendings = new ObservableCollection<Spending>();
 
         public void addSpending(Spending spending)
         {

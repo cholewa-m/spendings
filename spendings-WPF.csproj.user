@@ -7,15 +7,15 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="AddSpendingWindow.xaml.cs">
+    <Compile Update="view\AddSpendingWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="AddSpendingWindow.xaml">
+    <Page Update="view\AddSpendingWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MainWindow.xaml">
+    <Page Update="view\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\Mateusz\source\repos\spendings-WPF\App.xaml
-22069013985
+2-1047780993
 
-6-1280807308
+6-146373945
 193-1891726104
-AddSpendingWindow.xaml;MainWindow.xaml;
+view\AddSpendingWindow.xaml;view\MainWindow.xaml;
 
 False
 

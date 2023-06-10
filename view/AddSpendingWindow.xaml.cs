@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows;
-using System.Windows.Controls;
 
 using spendings_WPF.model;
 
-namespace spendings_WPF
+namespace spendings_WPF.view
 {
     public partial class AddSpendingWindow : Window
     {
         public Spending spending { get; private set; }
 
+        // Add
         public AddSpendingWindow()
         {
             InitializeComponent();
         }
 
+        // Edit
         public AddSpendingWindow(Spending spending)
         {
             InitializeComponent();
@@ -23,7 +24,7 @@ namespace spendings_WPF
             this.spending = spending;
 
             titleTextBox.Text = spending.Title;
-            costTextBox.Text = spending.Cost.ToString(CultureInfo.InvariantCulture);
+            costTextBox.Text = spending.Cost.ToString();
             datePicker.SelectedDate = spending.Date;
         }
 
