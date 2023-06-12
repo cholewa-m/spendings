@@ -16,8 +16,7 @@ namespace spendings_WPF.view
 
             spendingController = new SpendingController();
 
-            // each spending of spendings as a row in spendingsListView
-            spendingsListView.ItemsSource = spendingController.spendings;
+            spendingDataGrid.ItemsSource = spendingController.spendings;
         }
 
         private void addSpendingButton_Click(object sender, RoutedEventArgs e)
@@ -40,7 +39,6 @@ namespace spendings_WPF.view
         {
             Button button = sender as Button;
 
-            // TODO Binding
             Spending selectedSpending = button.DataContext as Spending;
 
             var addSpendingWindow = new AddSpendingWindow(selectedSpending);
@@ -56,7 +54,7 @@ namespace spendings_WPF.view
                 selectedSpending.Cost = addSpendingWindow.spending.Cost;
                 selectedSpending.Date = addSpendingWindow.spending.Date;
 
-                totalSpendingsLabel.Text = "Total Spendings: " + spendingController.getTotalSpendings();
+                totalSpendingsLabel.Text = "Total Spendings: " + spendingController.getTotalSpendings() + "$";
             }
         }
 
@@ -64,7 +62,6 @@ namespace spendings_WPF.view
         {
             Button button = sender as Button;
 
-            //TODO binding
             Spending selectedSpending = button.DataContext as Spending;
 
             spendingController.removeSpending(selectedSpending);

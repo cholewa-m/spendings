@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Collections.ObjectModel;
 using spendings_WPF.model;
 
@@ -8,7 +7,7 @@ namespace spendings_WPF.controller
 {
     public class SpendingController
     {        
-        //TODO UI can ract to changes
+        // collection that notify changes
         public ObservableCollection<Spending> spendings = new ObservableCollection<Spending>();
 
         public void addSpending(Spending spending)

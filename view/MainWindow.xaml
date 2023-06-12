@@ -18,7 +18,7 @@
 
         <Button Grid.Row="1" x:Name="addSpendingButton" Content="Add Spending" FontSize="15" FontWeight="DemiBold"  HorizontalAlignment="Right" VerticalAlignment="Top"  Click="addSpendingButton_Click" Width="200" Height="30"/>
 
-        <DataGrid Grid.Row="2" x:Name="spendingsListView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="True" SelectionMode="Extended">
+        <DataGrid Grid.Row="2" x:Name="spendingDataGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="True" SelectionMode="Extended">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="4*">
                     <DataGridTextColumn.ElementStyle>

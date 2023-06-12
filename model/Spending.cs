@@ -39,7 +39,6 @@ namespace spendings_WPF.model
             OnPropertyChanged(propertyName);
         }
 
-        // Subscribing UI elements will be notified
         protected virtual void OnPropertyChanged(string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
